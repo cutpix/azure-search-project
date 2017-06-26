@@ -7,17 +7,13 @@ namespace FlightSearchProject.Models
 {
     public class Flight
     {
-        public string FlightId { get; set; }
+        public int FlightId { get; set; }
 
         public string From { get; set; }
 
         public string To { get; set; }
 
-        public int Adult { get; set; }
-
-        public int Children { get; set; }
-
-        public int Infants { get; set; }
+        public string Duration { get; set; }
 
         public string Airline { get; set; }
 

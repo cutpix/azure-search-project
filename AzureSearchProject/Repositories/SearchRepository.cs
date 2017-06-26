@@ -14,7 +14,17 @@ namespace FlightSearchProject.Repositories
 
         private void AddFlightData(ISearchIndexClient indexClient)
         {
-            var flights = new Flight[5];
+            var flights = new Flight[] {
+                new Flight { FlightId = 1, Airline = "Air France", From = "", To = "", Class = FlightClass.Economy, DirectFlight = false  },
+                new Flight { FlightId = 2, Airline = "US Airline", From = "", To = "", Class = FlightClass.Business, DirectFlight = true  },
+                new Flight { FlightId = 3, Airline = "Virgin Airways", From = "", To = "", Class = FlightClass.Economy, DirectFlight = true  },
+                new Flight { FlightId = 4, Airline = "South African Airways", From = "", To = "", Class = FlightClass.Premium, DirectFlight = true  },
+                new Flight { FlightId = 5, Airline = "British Airways", From = "", To = "", Class = FlightClass.Premium, DirectFlight = false  },
+                new Flight { FlightId = 6, Airline = "Turkish Airlines", From = "", To = "", Class = FlightClass.First, DirectFlight = false  },
+                new Flight { FlightId = 7, Airline = "British Airways", From = "", To = "", Class = FlightClass.Business, DirectFlight = true  },
+                new Flight { FlightId = 8, Airline = "Ethiopian Airways", From = "", To = "", Class = FlightClass.Premium, DirectFlight = false  },
+                new Flight { FlightId = 9, Airline = "Etihad Airways", From = "", To = "", Class = FlightClass.First, DirectFlight = true  },
+            };
 
             //batch
             var batch = IndexBatch.Upload(flights);
