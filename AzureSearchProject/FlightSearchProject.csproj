@@ -16,6 +16,7 @@
     <Content Include="wwwroot\css\icons.ttf" />
     <Content Include="wwwroot\css\icons.woff" />
     <Content Include="wwwroot\css\icons.woff2" />
+    <Content Include="wwwroot\css\search.min.css" />
     <Content Include="wwwroot\css\semantic.min.css" />
     <Content Include="wwwroot\css\themes\default\assets\fonts\icons.eot" />
     <Content Include="wwwroot\css\themes\default\assets\fonts\icons.otf" />
@@ -24,6 +25,8 @@
     <Content Include="wwwroot\css\themes\default\assets\fonts\icons.woff" />
     <Content Include="wwwroot\css\themes\default\assets\fonts\icons.woff2" />
     <Content Include="wwwroot\js\dropdown.min.js" />
+    <Content Include="wwwroot\js\airport-data.js" />
+    <Content Include="wwwroot\js\search.js" />
     <Content Include="wwwroot\js\semantic.min.js" />
   </ItemGroup>
   <ItemGroup>

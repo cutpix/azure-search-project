@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home";
 }
 
+@model FlightSearchProject.Models.Flight
+
 
 <div style="margin-top: 100px">
     <h1 class="ui header" style="text-align: center">Find a flight that suits your needs</h1>
@@ -9,15 +11,39 @@
     <div class="ui two column divided grid">
         <div class="row">
             <div class="column">
-                <div class="ui huge fluid icon input">
-                    <input type="text" placeholder="Where are you currently?">
+                <div class="ui huge fluid search selection icon dropdown">
+                    <input type="hidden" asp-for="From">
                     <i class="search icon"></i>
+                    <div class="default text">Where are you currently?</div>
+                    <div class="menu">
+                        <div class="item" data-value="gb"><i class="gb flag"></i>England, London, London Heathrow</div>
+                        <div class="item" data-value="ae"><i class="ae flag"></i>United Arab Emirates, Dubai, Dubai International</div>
+                        <div class="item" data-value="jp"><i class="jp flag"></i>Japan, Tokyo, Tokyo International</div>
+                        <div class="item" data-value="us"><i class="us flag"></i>United States, Los Angeles, Los Angeles International</div>
+                        <div class="item" data-value="my"><i class="my flag"></i>Malaysia, Kuala Lumpur, Kuala Lumpur International</div>
+                        <div class="item" data-value="es"><i class="es flag"></i>Spain, Madrid, Madrid Barajas International</div>
+                        <div class="item" data-value="za"><i class="za flag"></i>South Africa, Johannesburg, OR Tambo International</div>
+                        <div class="item" data-value="fr"><i class="fr flag"></i>France, Paris, Charles de Gaulle International</div>
+                        <div class="item" data-value="hk"><i class="hk flag"></i>Hong Kong, Hong Kong, Hong Kong International</div>
+                    </div>
                 </div>
             </div>
             <div class="column">
-                <div class="ui huge fluid icon input">
-                    <input type="text" placeholder="Where would you like to go?">
+                <div class="ui huge fluid search selection icon dropdown">
+                    <input type="hidden" asp-for="To">
                     <i class="search icon"></i>
+                    <div class="default text">Where would you like to go?</div>
+                    <div class="menu">
+                        <div class="item" data-value="gb"><i class="gb flag"></i>England, London, London Heathrow</div>
+                        <div class="item" data-value="ae"><i class="ae flag"></i>United Arab Emirates, Dubai, Dubai International</div>
+                        <div class="item" data-value="jp"><i class="jp flag"></i>Japan, Tokyo, Tokyo International</div>
+                        <div class="item" data-value="us"><i class="us flag"></i>United States, Los Angeles, Los Angeles International</div>
+                        <div class="item" data-value="my"><i class="my flag"></i>Malaysia, Kuala Lumpur, Kuala Lumpur International</div>
+                        <div class="item" data-value="es"><i class="es flag"></i>Spain, Madrid, Madrid Barajas International</div>
+                        <div class="item" data-value="za"><i class="za flag"></i>South Africa, Johannesburg, OR Tambo International</div>
+                        <div class="item" data-value="fr"><i class="fr flag"></i>France, Paris, Charles de Gaulle International</div>
+                        <div class="item" data-value="hk"><i class="hk flag"></i>Hong Kong, Hong Kong, Hong Kong International</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,8 +56,13 @@
                     <i class="dropdown icon"></i>
                     <div class="default text">Adult</div>
                     <div class="menu">
-                        <div class="item" data-value="1">Male</div>
-                        <div class="item" data-value="0">Female</div>
+                        <div class="item" data-value="0">0</div>
+                        <div class="item" data-value="1">1</div>
+                        <div class="item" data-value="2">2</div>
+                        <div class="item" data-value="3">3</div>
+                        <div class="item" data-value="4">4</div>
+                        <div class="item" data-value="5">5</div>
+                        <div class="item" data-value="6">6</div>
                     </div>
                 </div>
             </div>
@@ -41,8 +72,13 @@
                     <i class="dropdown icon"></i>
                     <div class="default text">Children</div>
                     <div class="menu">
-                        <div class="item" data-value="1">Male</div>
-                        <div class="item" data-value="0">Female</div>
+                        <div class="item" data-value="0">0</div>
+                        <div class="item" data-value="1">1</div>
+                        <div class="item" data-value="2">2</div>
+                        <div class="item" data-value="3">3</div>
+                        <div class="item" data-value="4">4</div>
+                        <div class="item" data-value="5">5</div>
+                        <div class="item" data-value="6">6</div>
                     </div>
                 </div>
             </div>
@@ -52,8 +88,13 @@
                     <i class="dropdown icon"></i>
                     <div class="default text">Infants</div>
                     <div class="menu">
-                        <div class="item" data-value="1">Male</div>
-                        <div class="item" data-value="0">Female</div>
+                        <div class="item" data-value="0">0</div>
+                        <div class="item" data-value="1">1</div>
+                        <div class="item" data-value="2">2</div>
+                        <div class="item" data-value="3">3</div>
+                        <div class="item" data-value="4">4</div>
+                        <div class="item" data-value="5">5</div>
+                        <div class="item" data-value="6">6</div>
                     </div>
                 </div>
             </div>
@@ -63,8 +104,10 @@
                     <i class="dropdown icon"></i>
                     <div class="default text">Economy</div>
                     <div class="menu">
-                        <div class="item" data-value="1">Economy</div>
-                        <div class="item" data-value="0">Premium Economy</div>
+                        <div class="item" data-value="0">Economy</div>
+                        <div class="item" data-value="1">Premium Economy</div>
+                        <div class="item" data-value="3">Business Class</div>
+                        <div class="item" data-value="4">First Class</div>
                     </div>
                 </div>
             </div>
