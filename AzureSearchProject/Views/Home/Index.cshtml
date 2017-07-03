@@ -2,7 +2,9 @@
     ViewData["Title"] = "Home";
 }
 
-@model FlightSearchProject.Models.Flight
+@using FlightSearchProject.Models;
+
+@model Flight
 
 
 <div style="margin-top: 100px">
@@ -11,105 +13,26 @@
     <div class="ui two column divided grid">
         <div class="row">
             <div class="column">
-                <div class="ui huge fluid search selection icon dropdown">
-                    <input type="hidden" asp-for="From">
-                    <i class="search icon"></i>
-                    <div class="default text">Where are you currently?</div>
-                    <div class="menu">
-                        <div class="item" data-value="gb"><i class="gb flag"></i>England, London, London Heathrow</div>
-                        <div class="item" data-value="ae"><i class="ae flag"></i>United Arab Emirates, Dubai, Dubai International</div>
-                        <div class="item" data-value="jp"><i class="jp flag"></i>Japan, Tokyo, Tokyo International</div>
-                        <div class="item" data-value="us"><i class="us flag"></i>United States, Los Angeles, Los Angeles International</div>
-                        <div class="item" data-value="my"><i class="my flag"></i>Malaysia, Kuala Lumpur, Kuala Lumpur International</div>
-                        <div class="item" data-value="es"><i class="es flag"></i>Spain, Madrid, Madrid Barajas International</div>
-                        <div class="item" data-value="za"><i class="za flag"></i>South Africa, Johannesburg, OR Tambo International</div>
-                        <div class="item" data-value="fr"><i class="fr flag"></i>France, Paris, Charles de Gaulle International</div>
-                        <div class="item" data-value="hk"><i class="hk flag"></i>Hong Kong, Hong Kong, Hong Kong International</div>
-                    </div>
-                </div>
+                @Html.DropDownList("From", new SelectList(ViewBag.Airports), "Where are you currently?", new { @class = "ui huge fluid search selection icon dropdown" })
             </div>
             <div class="column">
-                <div class="ui huge fluid search selection icon dropdown">
-                    <input type="hidden" asp-for="To">
-                    <i class="search icon"></i>
-                    <div class="default text">Where would you like to go?</div>
-                    <div class="menu">
-                        <div class="item" data-value="gb"><i class="gb flag"></i>England, London, London Heathrow</div>
-                        <div class="item" data-value="ae"><i class="ae flag"></i>United Arab Emirates, Dubai, Dubai International</div>
-                        <div class="item" data-value="jp"><i class="jp flag"></i>Japan, Tokyo, Tokyo International</div>
-                        <div class="item" data-value="us"><i class="us flag"></i>United States, Los Angeles, Los Angeles International</div>
-                        <div class="item" data-value="my"><i class="my flag"></i>Malaysia, Kuala Lumpur, Kuala Lumpur International</div>
-                        <div class="item" data-value="es"><i class="es flag"></i>Spain, Madrid, Madrid Barajas International</div>
-                        <div class="item" data-value="za"><i class="za flag"></i>South Africa, Johannesburg, OR Tambo International</div>
-                        <div class="item" data-value="fr"><i class="fr flag"></i>France, Paris, Charles de Gaulle International</div>
-                        <div class="item" data-value="hk"><i class="hk flag"></i>Hong Kong, Hong Kong, Hong Kong International</div>
-                    </div>
-                </div>
+                @Html.DropDownList("To", new SelectList(ViewBag.Airports), "Where are you heading?", new { @class = "ui huge fluid search selection icon dropdown" })
             </div>
         </div>
     </div>
     <div class="ui four column divided grid">
         <div class="row">
             <div class="column">
-                <div class="ui selection dropdown">
-                    <input type="hidden" name="adult">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Adult</div>
-                    <div class="menu">
-                        <div class="item" data-value="0">0</div>
-                        <div class="item" data-value="1">1</div>
-                        <div class="item" data-value="2">2</div>
-                        <div class="item" data-value="3">3</div>
-                        <div class="item" data-value="4">4</div>
-                        <div class="item" data-value="5">5</div>
-                        <div class="item" data-value="6">6</div>
-                    </div>
-                </div>
+                @Html.DropDownList("Adults", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Adults", new { @class = "ui fluid icon dropdown" })
             </div>
             <div class="column">
-                <div class="ui selection dropdown">
-                    <input type="hidden" name="children">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Children</div>
-                    <div class="menu">
-                        <div class="item" data-value="0">0</div>
-                        <div class="item" data-value="1">1</div>
-                        <div class="item" data-value="2">2</div>
-                        <div class="item" data-value="3">3</div>
-                        <div class="item" data-value="4">4</div>
-                        <div class="item" data-value="5">5</div>
-                        <div class="item" data-value="6">6</div>
-                    </div>
-                </div>
+                @Html.DropDownList("Children", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Children", new { @class = "ui fluid icon dropdown" })
             </div>
             <div class="column">
-                <div class="ui selection dropdown">
-                    <input type="hidden" name="infants">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Infants</div>
-                    <div class="menu">
-                        <div class="item" data-value="0">0</div>
-                        <div class="item" data-value="1">1</div>
-                        <div class="item" data-value="2">2</div>
-                        <div class="item" data-value="3">3</div>
-                        <div class="item" data-value="4">4</div>
-                        <div class="item" data-value="5">5</div>
-                        <div class="item" data-value="6">6</div>
-                    </div>
-                </div>
+                @Html.DropDownList("Infants", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Infants", new { @class = "ui fluid icon dropdown" })
             </div>
             <div class="column">
-                <div class="ui selection dropdown">
-                    <input type="hidden" name="economy">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Economy</div>
-                    <div class="menu">
-                        <div class="item" data-value="0">Economy</div>
-                        <div class="item" data-value="1">Premium Economy</div>
-                        <div class="item" data-value="3">Business Class</div>
-                        <div class="item" data-value="4">First Class</div>
-                    </div>
-                </div>
+                @Html.DropDownList("Class", new SelectList(Enum.GetValues(typeof(FlightClass))), "Economy", new { @class = "ui fluid search icon dropdown" })
             </div>
         </div>
     </div>

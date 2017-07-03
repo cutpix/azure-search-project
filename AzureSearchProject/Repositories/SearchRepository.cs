@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 using FlightSearchProject.Models;
+using FlightSearchProject.Options;
+using Microsoft.Extensions.Options;
 
 namespace FlightSearchProject.Repositories
 {
@@ -51,22 +53,16 @@ namespace FlightSearchProject.Repositories
             serviceClient.Indexes.Create(flightsIndex);
         }
 
-        public SearchIndexClient CreateSearchIndexClient()
+        public SearchIndexClient CreateSearchIndexClient(string apiKey, string serviceName)
         {
-            string serviceName = "";
-            string apiKey = "";
-
             //index name: flights
             SearchIndexClient indexClient = new SearchIndexClient(serviceName, indexName, new SearchCredentials(apiKey));
 
             return indexClient;
         }
 
-        public SearchServiceClient CreateSearchServiceClient()
+        public SearchServiceClient CreateSearchServiceClient(string apiKey, string serviceName)
         {
-            string serviceName = "";
-            string apiKey = "";
-
             SearchServiceClient serviceClient = new SearchServiceClient(serviceName, new SearchCredentials(apiKey));
 
             return serviceClient;

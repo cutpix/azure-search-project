@@ -8,12 +8,12 @@ namespace FlightSearchProject.Repositories
 {
     public interface ISearchRepository
     {
-        SearchServiceClient CreateSearchServiceClient();
+        SearchServiceClient CreateSearchServiceClient(string apiKey, string serviceName);
 
         void CreateFlightsIndex(SearchServiceClient serviceClient);
 
         void DeleteFlightsIndexIfExists(SearchServiceClient serviceClient);
 
-        SearchIndexClient CreateSearchIndexClient();
+        SearchIndexClient CreateSearchIndexClient(string apiKey, string serviceName);
     }
 }
