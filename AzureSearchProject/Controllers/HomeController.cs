@@ -33,7 +33,15 @@ namespace FlightSearchProject.Controllers
                 "Spain, Madrid, Madrid Barajas International",
                 "South Africa, Johannesburg, OR Tambo International",
                 "France, Paris, Charles de Gaulle International",
-                "Hong Kong, Hong Kong, Hong Kong International"
+                "Hong Kong, Hong Kong, Hong Kong International",
+                "Germany, Frankfurt, Frankfurt am Main International",
+                "United States, Miami, Miami International",
+                "China, Beijing, Beijing Capital International",
+                "Turkey, Ataturk, Atatürk International",
+                "Canada, Toronto, Lester B. Pearson International",
+                "Austrailia, Sydney, Sydney Kingsford Smith International",
+                "Italy, Milan, Leonardo Da Vinci (Fiumicino) International",
+                "India, Mumbai, Chhatrapati Shivaji International"
             }; ;
         }
 
