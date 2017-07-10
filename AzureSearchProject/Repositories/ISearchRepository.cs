@@ -1,4 +1,6 @@
-﻿using Microsoft.Azure.Search;
+﻿using FlightSearchProject.Models;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,15 @@ namespace FlightSearchProject.Repositories
     {
         SearchServiceClient CreateSearchServiceClient(string apiKey, string serviceName);
 
-        void CreateFlightsIndex(SearchServiceClient serviceClient);
+        void CreateFlightsIndex(ISearchServiceClient serviceClient);
 
-        void DeleteFlightsIndexIfExists(SearchServiceClient serviceClient);
+        void DeleteFlightsIndexIfExists(ISearchServiceClient serviceClient);
 
         SearchIndexClient CreateSearchIndexClient(string apiKey, string serviceName);
+
+        void AddFlightData(ISearchIndexClient indexClient);
+
+        IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient);
+
     }
 }

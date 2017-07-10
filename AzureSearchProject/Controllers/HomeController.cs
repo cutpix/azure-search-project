@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using FlightSearchProject.Options;
 using Microsoft.Extensions.Options;
 using FlightSearchProject.Models;
+using FlightSearchProject.Repositories;
+using Microsoft.Azure.Search;
 
 namespace FlightSearchProject.Controllers
 {
@@ -15,10 +17,32 @@ namespace FlightSearchProject.Controllers
 
         public string ServiceName { get; set; }
 
-        public HomeController(IOptions<AppSecrets> optionsAccessor)
+        private ISearchRepository _repository;
+
+        private SearchServiceClient _serviceClient;
+
+        private SearchIndexClient _indexClient;
+
+        public HomeController(IOptions<AppSecrets> optionsAccessor, ISearchRepository repository)
         {
+            // Initialize search repository
+            _repository = repository;
+
+            // Secrets
             ApiKey = optionsAccessor.Value.SearchApiKey;
             ServiceName = optionsAccessor.Value.SearchServiceName;
+
+            // Search service client
+            _serviceClient = _repository.CreateSearchServiceClient(ApiKey, ServiceName);
+
+            // Search index client
+            _indexClient = _repository.CreateSearchIndexClient(ApiKey, ServiceName);
+
+            // Create flight index
+            _repository.CreateFlightsIndex(_serviceClient);
+
+            // Adding flight data
+            _repository.AddFlightData(_indexClient);
         }
 
         private string[] GetAirportData()
@@ -58,9 +82,13 @@ namespace FlightSearchProject.Controllers
             if (!ModelState.IsValid)
             {
                 //handle invalid form submission.
+                return BadRequest();
             }
 
-            return NoContent();
+            // Search query.
+            var results = _repository.ReturnSearchResult(_indexClient);
+
+            return View(results);
         }
 
 

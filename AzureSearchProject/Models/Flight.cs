@@ -34,7 +34,7 @@ namespace FlightSearchProject.Models
         public double Cost { get; set; }
 
         [IsSearchable, IsFilterable]
-        public FlightClass Class { get; set; }
+        public string Class { get; set; }
 
         [IsFilterable, IsSearchable]
         public DateTime DepartureTime { get; set; }
@@ -53,10 +53,5 @@ namespace FlightSearchProject.Models
 
             Cost = new Random().Next(10000, 100000);
         }
-    }
-
-    public enum FlightClass
-    {
-        Economy, Premium, First, Business
     }
 }

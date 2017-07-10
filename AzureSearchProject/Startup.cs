@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using FlightSearchProject.Options;
+using FlightSearchProject.Repositories;
 
 namespace FlightSearchProject
 {
@@ -40,7 +41,11 @@ namespace FlightSearchProject
             // Options pattern.
             services.AddOptions();
 
+            // Secrets.
             services.Configure<AppSecrets>(Configuration);
+
+            // Repository.
+            services.AddTransient<ISearchRepository, SearchRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

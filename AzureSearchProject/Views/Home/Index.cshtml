@@ -6,6 +6,9 @@
 
 @model Flight
 
+<div>
+    <a class="ui header" href="https://github.com/metsephiri/flight-search-app">View source on Github</a>
+</div>
 
 <div style="margin-top: 100px">
     <h1 class="ui header" style="text-align: center">Find a flight that suits your needs</h1>
@@ -32,7 +35,7 @@
                 @Html.DropDownList("Infants", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Infants", new { @class = "ui fluid icon dropdown" })
             </div>
             <div class="column">
-                @Html.DropDownList("Class", new SelectList(Enum.GetValues(typeof(FlightClass))), "Economy", new { @class = "ui fluid search icon dropdown" })
+                @Html.DropDownList("Class", new SelectList(new string[] { "Economy", "Premium Economy", "Business Class", "First Class" }), "Economy", new { @class = "ui fluid search icon dropdown" })
             </div>
         </div>
     </div>
