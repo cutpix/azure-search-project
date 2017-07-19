@@ -56,14 +56,14 @@ namespace FlightSearchProject.Repositories
             {
                 indexClient.Documents.Index(batch);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 //Sometimes indexing will fail due to load
-                throw exc;
+                throw;
             }
         }
 
-        public void CreateFlightsIndex(ISearchServiceClient serviceClient)
+        public void CreateFlightsIndex(SearchServiceClient serviceClient)
         {
             var flightsIndex = new Index()
             {
@@ -89,7 +89,7 @@ namespace FlightSearchProject.Repositories
             return serviceClient;
         }
 
-        public void DeleteFlightsIndexIfExists(ISearchServiceClient serviceClient)
+        public void DeleteFlightsIndexIfExists(SearchServiceClient serviceClient)
         {
             if (serviceClient.Indexes.Exists(indexName))
             {

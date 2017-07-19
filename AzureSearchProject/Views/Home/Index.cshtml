@@ -6,46 +6,44 @@
 
 @model Flight
 
-<div>
-    <a class="ui header" href="https://github.com/metsephiri/flight-search-app">View source on Github</a>
-</div>
-
 <div style="margin-top: 100px">
     <h1 class="ui header" style="text-align: center">Find a flight that suits your needs</h1>
     <br />
-    <div class="ui two column divided grid">
-        <div class="row">
-            <div class="column">
-                @Html.DropDownList("From", new SelectList(ViewBag.Airports), "Where are you currently?", new { @class = "ui huge fluid search selection icon dropdown" })
-            </div>
-            <div class="column">
-                @Html.DropDownList("To", new SelectList(ViewBag.Airports), "Where are you heading?", new { @class = "ui huge fluid search selection icon dropdown" })
-            </div>
-        </div>
-    </div>
-    <div class="ui four column divided grid">
-        <div class="row">
-            <div class="column">
-                @Html.DropDownList("Adults", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Adults", new { @class = "ui fluid icon dropdown" })
-            </div>
-            <div class="column">
-                @Html.DropDownList("Children", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Children", new { @class = "ui fluid icon dropdown" })
-            </div>
-            <div class="column">
-                @Html.DropDownList("Infants", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Infants", new { @class = "ui fluid icon dropdown" })
-            </div>
-            <div class="column">
-                @Html.DropDownList("Class", new SelectList(new string[] { "Economy", "Premium Economy", "Business Class", "First Class" }), "Economy", new { @class = "ui fluid search icon dropdown" })
+    <form asp-controller="Home" asp-action="Index"  method="post">
+        <div class="ui two column grid">
+            <div class="row">
+                <div class="column">
+                    @Html.DropDownList("From", new SelectList(ViewBag.Airports), "Where are you currently?", new { @class = "ui huge fluid search selection icon dropdown" })
+                </div>
+                <div class="column">
+                    @Html.DropDownList("To", new SelectList(ViewBag.Airports), "Where are you heading?", new { @class = "ui huge fluid search selection icon dropdown" })
+                </div>
             </div>
         </div>
-    </div>
-    <div class="ui three column divided grid">
-        <div class="row">
-            <div class="column"></div>
-            <div class="column">
-                <button class="fluid ui blue button">Search Flights</button>
+        <div class="ui four column grid">
+            <div class="row">
+                <div class="column">
+                    @Html.DropDownList("Adults", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Adults", new { @class = "ui fluid icon dropdown" })
+                </div>
+                <div class="column">
+                    @Html.DropDownList("Children", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Children", new { @class = "ui fluid icon dropdown" })
+                </div>
+                <div class="column">
+                    @Html.DropDownList("Infants", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Infants", new { @class = "ui fluid icon dropdown" })
+                </div>
+                <div class="column">
+                    @Html.DropDownList("Class", new SelectList(new string[] { "Economy", "Premium Economy", "Business Class", "First Class" }), "Economy", new { @class = "ui fluid search icon dropdown" })
+                </div>
             </div>
-            <div class="column"></div>
         </div>
-    </div>
+        <div class="ui three column grid">
+            <div class="row">
+                <div class="column"></div>
+                <div class="column">
+                    <button class="fluid ui red button" type="submit">Search Flights</button>
+                </div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </form>
 </div>

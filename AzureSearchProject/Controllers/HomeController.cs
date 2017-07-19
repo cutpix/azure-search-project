@@ -19,9 +19,9 @@ namespace FlightSearchProject.Controllers
 
         private ISearchRepository _repository;
 
-        private SearchServiceClient _serviceClient;
+        public SearchServiceClient _serviceClient;
 
-        private SearchIndexClient _indexClient;
+        public SearchIndexClient _indexClient;
 
         public HomeController(IOptions<AppSecrets> optionsAccessor, ISearchRepository repository)
         {
@@ -35,14 +35,18 @@ namespace FlightSearchProject.Controllers
             // Search service client
             _serviceClient = _repository.CreateSearchServiceClient(ApiKey, ServiceName);
 
-            // Search index client
-            _indexClient = _repository.CreateSearchIndexClient(ApiKey, ServiceName);
+            // Delete if it exists.
+            _repository.DeleteFlightsIndexIfExists(_serviceClient);
 
             // Create flight index
             _repository.CreateFlightsIndex(_serviceClient);
 
+            ISearchIndexClient _indexClient = _serviceClient.Indexes.GetClient("flights");
+
             // Adding flight data
             _repository.AddFlightData(_indexClient);
+
+
         }
 
         private string[] GetAirportData()
@@ -88,9 +92,25 @@ namespace FlightSearchProject.Controllers
             // Search query.
             var results = _repository.ReturnSearchResult(_indexClient);
 
-            return View(results);
+            return RedirectToLocal("/SearchResult");
         }
 
+        [HttpGet]
+        public IActionResult SearchResult()
+        {
+            return View();
+        }
+
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            } else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+        }
 
         public IActionResult Error()
         {

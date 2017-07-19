@@ -21,35 +21,35 @@ namespace FlightSearchProject.Models
         [IsFilterable, IsSearchable]
         public string To { get; set; }
 
-        [IsSortable]
-        public double Duration { get; set; }
+        [IsSortable, IsFilterable, IsFacetable]
+        public double? Duration { get; set; }
 
         [IsFilterable, IsSearchable]
         public string Airline { get; set; }
 
-        [IsSortable, IsFilterable, IsSearchable]
-        public bool DirectFlight { get; set; }
+        [IsFilterable, IsFacetable]
+        public bool? DirectFlight { get; set; }
 
-        [IsSearchable]
-        public double Cost { get; set; }
+        [IsFilterable, IsSortable, IsFacetable]
+        public double? Cost { get; set; }
 
-        [IsSearchable, IsFilterable]
+        [IsSearchable, IsFilterable, IsFacetable]
         public string Class { get; set; }
 
-        [IsFilterable, IsSearchable]
-        public DateTime DepartureTime { get; set; }
+        [IsFilterable, IsSortable, IsFacetable]
+        public DateTime? DepartureTime { get; set; }
 
-        [IsFilterable, IsSearchable]
-        public DateTime ArrivalTime { get; set; }
+        [IsFilterable, IsSortable, IsFacetable]
+        public DateTime? ArrivalTime { get; set; }
 
         public Flight()
         {
             // Random Values
             Duration = new Random().Next(6, 25);
 
-            DepartureTime = DateTime.Now.AddHours(2);
+            DepartureTime = new DateTime().AddHours(new Random().Next(1, 20));
 
-            ArrivalTime = DateTime.Now.AddDays(1);
+            ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20));
 
             Cost = new Random().Next(10000, 100000);
         }

@@ -12,9 +12,9 @@ namespace FlightSearchProject.Repositories
     {
         SearchServiceClient CreateSearchServiceClient(string apiKey, string serviceName);
 
-        void CreateFlightsIndex(ISearchServiceClient serviceClient);
+        void CreateFlightsIndex(SearchServiceClient serviceClient);
 
-        void DeleteFlightsIndexIfExists(ISearchServiceClient serviceClient);
+        void DeleteFlightsIndexIfExists(SearchServiceClient serviceClient);
 
         SearchIndexClient CreateSearchIndexClient(string apiKey, string serviceName);
 
