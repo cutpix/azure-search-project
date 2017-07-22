@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using FlightSearchProject.Models;
 using FlightSearchProject.Repositories;
 using Microsoft.Azure.Search;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FlightSearchProject.Controllers
 {
@@ -46,7 +47,6 @@ namespace FlightSearchProject.Controllers
             // Adding flight data
             _repository.AddFlightData(_indexClient);
 
-
         }
 
         private string[] GetAirportData()
@@ -76,12 +76,11 @@ namespace FlightSearchProject.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Airports = GetAirportData();
-            return View();
+            return View(_repository.ReturnFlights());
         }
 
         [HttpPost]
-        public IActionResult Index([FromBody] Flight flight)
+        public IActionResult Index([FromForm] string from, string to, bool directFlight)
         {
             if (!ModelState.IsValid)
             {
@@ -92,12 +91,6 @@ namespace FlightSearchProject.Controllers
             // Search query.
             var results = _repository.ReturnSearchResult(_indexClient);
 
-            return RedirectToLocal("/SearchResult");
-        }
-
-        [HttpGet]
-        public IActionResult SearchResult()
-        {
             return View();
         }
 

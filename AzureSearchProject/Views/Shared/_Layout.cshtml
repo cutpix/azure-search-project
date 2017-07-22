@@ -7,26 +7,17 @@
     <title>@ViewData["Title"] - Flight Search Site</title>
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/css/semantic.min.css" />
+        <link rel="stylesheet" href="~/css/bootstrap.min.css" />
         <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-        <link href="~/css/dropdown.css" rel="stylesheet" />
-        <link href="~/css/search.min.css" rel="stylesheet" />
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="~/css/semantic.min.css"
-              asp-fallback-href="~/css/semantic.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/bootstrap.min.css" />
         <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-        <link href="~/css/dropdown.css" rel="stylesheet" />
-        <link href="~/css/search.min.css" rel="stylesheet" />
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body style="font-family: 'Cabin', sans-serif">
-    <div>
-        <a href="https://github.com/metsephiri/flight-search-app" target="_blank">View source on Github</a>
-    </div>
-    <div class="ui container">
+    <div class="ui">
         @RenderBody()
     </div>
 

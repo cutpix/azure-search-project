@@ -2,48 +2,94 @@
     ViewData["Title"] = "Home";
 }
 
-@using FlightSearchProject.Models;
+@model IEnumerable<FlightSearchProject.Models.Flight>
 
-@model Flight
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">Flight Search Project</a>
+        </div>
 
-<div style="margin-top: 100px">
-    <h1 class="ui header" style="text-align: center">Find a flight that suits your needs</h1>
-    <br />
-    <form asp-controller="Home" asp-action="Index"  method="post">
-        <div class="ui two column grid">
-            <div class="row">
-                <div class="column">
-                    @Html.DropDownList("From", new SelectList(ViewBag.Airports), "Where are you currently?", new { @class = "ui huge fluid search selection icon dropdown" })
-                </div>
-                <div class="column">
-                    @Html.DropDownList("To", new SelectList(ViewBag.Airports), "Where are you heading?", new { @class = "ui huge fluid search selection icon dropdown" })
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/metsephiri/flight-search-app" target="_blank">View Source on Github</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="page-header">
+        <h3 class="text-center">Flight Search Site</h3>
+    </div>
+
+    <div class="col-sm-8">
+        <div class="page-header">
+            <h4>All Flights</h4>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @if (item.DirectFlight.Value)
+                    {
+                        <div class="pull-right">
+                            <span class="label label-success">
+                                Direct Flight
+                            </span> 
+                            <br />
+                            <span class="label label-danger">
+                                @item.Class
+                            </span> 
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="pull-right">
+                            <span class="label label-warning">
+                                Not Direct
+                            </span>
+                            <br />
+                            <span class="label label-danger">
+                                @item.Class
+                            </span>
+                        </div>
+
+                    }
+                    <h5><b>From</b>: @item.From</h5>
+                    <h5><b>To</b>: @item.To</h5>
+                    <h5><b>Flight Cost (per person)</b>: @item.Cost?.ToString("C0")</h5>
+                    <h5><b>Departure Time</b>: @item.DepartureTime?.ToString("hh:mm tt") </h5>
+                    <h5><b>Arrival Time</b>: @item.ArrivalTime?.ToString("hh:mm tt")</h5>
+                    <h4><span class="label label-info">@item.Airline</span></h4>
                 </div>
             </div>
+        }
+    </div>
+    <div class="col-sm-4">
+        <div class="page-header">
+            <h4>Search Flights</h4>
         </div>
-        <div class="ui four column grid">
-            <div class="row">
-                <div class="column">
-                    @Html.DropDownList("Adults", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Adults", new { @class = "ui fluid icon dropdown" })
-                </div>
-                <div class="column">
-                    @Html.DropDownList("Children", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Children", new { @class = "ui fluid icon dropdown" })
-                </div>
-                <div class="column">
-                    @Html.DropDownList("Infants", new SelectList(new int[] { 1, 2, 3, 4, 5, 6, 7 }), "Infants", new { @class = "ui fluid icon dropdown" })
-                </div>
-                <div class="column">
-                    @Html.DropDownList("Class", new SelectList(new string[] { "Economy", "Premium Economy", "Business Class", "First Class" }), "Economy", new { @class = "ui fluid search icon dropdown" })
-                </div>
+        <form asp-controller="Home" asp-action="Index" method="post">
+              <div class="form-group">
+                  <input type="text" name="from" class="form-control" placeholder="From"/>
+              </div>
+            <div class="form-group">
+                <input type="text" name="to" class="form-control" placeholder="To" />
             </div>
-        </div>
-        <div class="ui three column grid">
-            <div class="row">
-                <div class="column"></div>
-                <div class="column">
-                    <button class="fluid ui red button" type="submit">Search Flights</button>
-                </div>
-                <div class="column"></div>
+            <div class="form-group">
+                <input type="checkbox" name="directFlight"/>
+                <label>Direct Flight</label>
             </div>
-        </div>
-    </form>
+            <button class="btn btn-success">Search</button>
+        </form>
+    </div>
 </div>

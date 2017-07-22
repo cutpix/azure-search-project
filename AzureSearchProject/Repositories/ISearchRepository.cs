@@ -12,6 +12,8 @@ namespace FlightSearchProject.Repositories
     {
         SearchServiceClient CreateSearchServiceClient(string apiKey, string serviceName);
 
+        IEnumerable<Flight> ReturnFlights();
+
         void CreateFlightsIndex(SearchServiceClient serviceClient);
 
         void DeleteFlightsIndexIfExists(SearchServiceClient serviceClient);

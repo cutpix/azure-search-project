@@ -41,17 +41,5 @@ namespace FlightSearchProject.Models
 
         [IsFilterable, IsSortable, IsFacetable]
         public DateTime? ArrivalTime { get; set; }
-
-        public Flight()
-        {
-            // Random Values
-            Duration = new Random().Next(6, 25);
-
-            DepartureTime = new DateTime().AddHours(new Random().Next(1, 20));
-
-            ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20));
-
-            Cost = new Random().Next(10000, 100000);
-        }
     }
 }
