@@ -22,7 +22,7 @@ namespace FlightSearchProject.Repositories
 
         void AddFlightData(ISearchIndexClient indexClient);
 
-        IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient);
+        IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient, string[] values);
 
     }
 }

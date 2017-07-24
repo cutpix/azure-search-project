@@ -404,7 +404,7 @@ namespace FlightSearchProject.Repositories
             }
         }
 
-        public IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient)
+        public IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient, string[] values)
         {
             SearchParameters parameters;
             DocumentSearchResult<Flight> results;
@@ -412,9 +412,9 @@ namespace FlightSearchProject.Repositories
             // Returns the following parameters.
             parameters = new SearchParameters()
             {
-                Filter = "from",
-                OrderBy = new[] { "duration" },
-                Select = new[] { "from", "to", "directFlight", "airline", "cost", "class" }
+                Filter = "directFlight",
+                Select = new[] { "from", "to", "directFlight", "airline", "cost", "class" },
+                Top = 3
             };
 
             results = indexClient.Documents.Search<Flight>("*", parameters);

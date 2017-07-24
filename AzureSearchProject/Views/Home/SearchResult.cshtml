@@ -1,20 +1,61 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{ 
+    ViewData["Title"] = "Search Results";
+    Html.RenderPartial("_NavPartial");
 }
 
-<div style="margin-top: 100px">
-    <h1 class="ui header" style="text-align: center">Search Results</h1>
-    <br />
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Flight Details</div>
-            <div class="meta">
-                <span>details</span>
-                <a>details</a>
-            </div>
-            <p></p>
+@*@model IEnumerable<Microsoft.Azure.Search.Models.SearchResult<FlightSearchProject.Models.Flight>>*@
+@model IEnumerable<string>
+
+<div class="container">
+    <div class="page-header">
+        <h3 class="text-center">Flight Search Site</h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header">
+            <h4>Search Results</h4>
         </div>
+        <p>
+            From: @Model.First();
+            To: @Model.ElementAt(1);
+            Direct Flight: @Model.Last();
+        </p>
+        @*@foreach (var item in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @if (item.Document.DirectFlight.Value)
+                    {
+                        <div class="pull-right">
+                            <span class="label label-success">
+                                Direct Flight
+                            </span>
+                            <br />
+                            <span class="label label-danger">
+                                @item.Document.Class
+                            </span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="pull-right">
+                            <span class="label label-warning">
+                                Not Direct
+                            </span>
+                            <br />
+                            <span class="label label-danger">
+                                @item.Document.Class
+                            </span>
+                        </div>
+
+                    }
+                    <h5><b>From</b>: @item.Document.From</h5>
+                    <h5><b>To</b>: @item.Document</h5>
+                    <h5><b>Flight Cost (per person)</b>: @item.Document.Cost?.ToString("C0")</h5>
+                    <h5><b>Departure Time</b>: @item.Document.DepartureTime?.ToString("hh:mm tt") </h5>
+                    <h5><b>Arrival Time</b>: @item.Document.ArrivalTime?.ToString("hh:mm tt")</h5>
+                    <h4><span class="label label-info">@item.Document.Airline</span></h4>
+                </div>
+            </div>
+        }*@
     </div>
 </div>

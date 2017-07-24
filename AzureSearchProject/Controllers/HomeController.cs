@@ -88,13 +88,20 @@ namespace FlightSearchProject.Controllers
                 return BadRequest();
             }
 
-            // Search query.
-            var results = _repository.ReturnSearchResult(_indexClient);
-
-            return View();
+            return GoToSearchResult($"/SearchResult/from={from}to={to}directFlight={directFlight}");
         }
 
-        private IActionResult RedirectToLocal(string returnUrl)
+        [HttpGet("/Home/SearchResult/from={from}to={to}directFlight={directFlight}", Name = "SearchResult")]
+        [ActionName("SearchResult")]
+        public IActionResult SearchResult(string from, string to, bool directFlight)
+        {
+            // Search query.
+            //var results = _repository.ReturnSearchResult(_indexClient);
+
+            return View(new string[] { from, to, directFlight.ToString() });
+        }
+
+        private IActionResult GoToSearchResult(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
             {
