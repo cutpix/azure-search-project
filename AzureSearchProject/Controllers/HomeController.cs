@@ -42,10 +42,12 @@ namespace FlightSearchProject.Controllers
             // Create flight index
             _repository.CreateFlightsIndex(_serviceClient);
 
-            ISearchIndexClient _indexClient = _serviceClient.Indexes.GetClient("flights");
+            ISearchIndexClient indexClient = _serviceClient.Indexes.GetClient("flights");
 
             // Adding flight data
-            _repository.AddFlightData(_indexClient);
+            _repository.AddFlightData(indexClient);
+
+            _indexClient = _repository.CreateSearchIndexClient(ApiKey, ServiceName);
 
         }
 
@@ -80,7 +82,7 @@ namespace FlightSearchProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index([FromForm] string from, string to, bool directFlight)
+        public IActionResult Index(string from, string to, bool directFlight)
         {
             if (!ModelState.IsValid)
             {
@@ -88,17 +90,16 @@ namespace FlightSearchProject.Controllers
                 return BadRequest();
             }
 
-            return GoToSearchResult($"/SearchResult/from={from}to={to}directFlight={directFlight}");
+            return RedirectToAction("Search", "Home", new { from = from, to = to, directFlight = directFlight });
         }
 
-        [HttpGet("/Home/SearchResult/from={from}to={to}directFlight={directFlight}", Name = "SearchResult")]
-        [ActionName("SearchResult")]
+        [ActionName("Search")]
         public IActionResult SearchResult(string from, string to, bool directFlight)
         {
             // Search query.
-            //var results = _repository.ReturnSearchResult(_indexClient);
+            var results = _repository.ReturnSearchResult(_indexClient, from, to, directFlight);
 
-            return View(new string[] { from, to, directFlight.ToString() });
+            return View(results);
         }
 
         private IActionResult GoToSearchResult(string returnUrl)

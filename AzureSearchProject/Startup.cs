@@ -41,6 +41,11 @@ namespace FlightSearchProject
             // Options pattern.
             services.AddOptions();
 
+            services.AddRouting(options =>
+            {
+                options.LowercaseUrls = true;
+            });
+
             // Secrets.
             services.Configure<AppSecrets>(Configuration);
 

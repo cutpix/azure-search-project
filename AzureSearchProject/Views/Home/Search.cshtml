@@ -3,8 +3,7 @@
     Html.RenderPartial("_NavPartial");
 }
 
-@*@model IEnumerable<Microsoft.Azure.Search.Models.SearchResult<FlightSearchProject.Models.Flight>>*@
-@model IEnumerable<string>
+@model IEnumerable<Microsoft.Azure.Search.Models.SearchResult<FlightSearchProject.Models.Flight>>
 
 <div class="container">
     <div class="page-header">
@@ -14,12 +13,7 @@
         <div class="page-header">
             <h4>Search Results</h4>
         </div>
-        <p>
-            From: @Model.First();
-            To: @Model.ElementAt(1);
-            Direct Flight: @Model.Last();
-        </p>
-        @*@foreach (var item in Model)
+        @foreach (var item in Model)
         {
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -49,13 +43,13 @@
 
                     }
                     <h5><b>From</b>: @item.Document.From</h5>
-                    <h5><b>To</b>: @item.Document</h5>
+                    <h5><b>To</b>: @item.Document.To</h5>
                     <h5><b>Flight Cost (per person)</b>: @item.Document.Cost?.ToString("C0")</h5>
                     <h5><b>Departure Time</b>: @item.Document.DepartureTime?.ToString("hh:mm tt") </h5>
                     <h5><b>Arrival Time</b>: @item.Document.ArrivalTime?.ToString("hh:mm tt")</h5>
                     <h4><span class="label label-info">@item.Document.Airline</span></h4>
                 </div>
             </div>
-        }*@
+        }
     </div>
 </div>

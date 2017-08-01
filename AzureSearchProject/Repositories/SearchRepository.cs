@@ -20,8 +20,8 @@ namespace FlightSearchProject.Repositories
                 new Flight {
                     FlightId = "1",
                     Airline = "Air France",
-                    From = "England, London, London Heathrow",
-                    To = "France, Paris, Charles de Gaulle International",
+                    From = "England",
+                    To = "France",
                     Class = "Economy",
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 10)),
@@ -404,7 +404,7 @@ namespace FlightSearchProject.Repositories
             }
         }
 
-        public IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient, string[] values)
+        public IEnumerable<SearchResult<Flight>> ReturnSearchResult(ISearchIndexClient indexClient, string from, string to, bool directFlight)
         {
             SearchParameters parameters;
             DocumentSearchResult<Flight> results;
@@ -412,9 +412,9 @@ namespace FlightSearchProject.Repositories
             // Returns the following parameters.
             parameters = new SearchParameters()
             {
-                Filter = "directFlight",
-                Select = new[] { "from", "to", "directFlight", "airline", "cost", "class" },
-                Top = 3
+                Filter = "to eq " + to + " and from eq " + from + " and directFlight eq " + directFlight,
+                Select = new[] { "from", "to", "directFlight", "airline", "cost", "class", "departureTime", "arrivalTime" },
+                Top = 1
             };
 
             results = indexClient.Documents.Search<Flight>("*", parameters);
