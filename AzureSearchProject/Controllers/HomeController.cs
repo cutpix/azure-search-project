@@ -72,7 +72,7 @@ namespace FlightSearchProject.Controllers
                 "Austrailia, Sydney, Sydney Kingsford Smith International",
                 "Italy, Milan, Leonardo Da Vinci (Fiumicino) International",
                 "India, Mumbai, Chhatrapati Shivaji International"
-            }; ;
+            }; 
         }
 
         [HttpGet]
@@ -100,17 +100,6 @@ namespace FlightSearchProject.Controllers
             var results = _repository.ReturnSearchResult(_indexClient, from, to, directFlight);
 
             return View(results);
-        }
-
-        private IActionResult GoToSearchResult(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            } else
-            {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
         }
 
         public IActionResult Error()

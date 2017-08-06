@@ -20,13 +20,13 @@ namespace FlightSearchProject.Repositories
                 new Flight {
                     FlightId = "1",
                     Airline = "Air France",
-                    From = "England",
-                    To = "France",
+                    From = "England, London, London Heathrow",
+                    To = "France, Paris, Charles de Gaulle International",
                     Class = "Economy",
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 10)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 30)),
-                    Cost = new Random().Next(23432, 68644)
+                    Cost = 33567
                 },
                 new Flight {
                     FlightId = "2",
@@ -37,7 +37,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 10)),
-                    Cost = new Random().Next(12346, 45442)
+                    Cost = 19765
                 },
                 new Flight {
                     FlightId = "3",
@@ -48,7 +48,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 10)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 50)),
-                    Cost = new Random().Next(33453, 607615)
+                    Cost = 12500
                 },
                 new Flight {
                     FlightId = "4",
@@ -59,7 +59,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 60)),
-                    Cost = new Random().Next(23432, 798722)
+                    Cost = 43222
                 },
                 new Flight {
                     FlightId = "5",
@@ -70,7 +70,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 50)),
-                    Cost = new Random().Next(63432, 785675)
+                    Cost = 32466
                 },
                 new Flight {
                     FlightId = "6",
@@ -81,7 +81,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 70)),
-                    Cost = new Random().Next(3543, 98772)
+                    Cost = 25440
                 },
                 new Flight {
                     FlightId = "7",
@@ -92,7 +92,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(9000, 10120)
+                    Cost = 32423
                 },
                 new Flight {
                     FlightId = "8",
@@ -103,7 +103,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(34367, 89879)
+                    Cost = 40442
                 },
                 new Flight {
                     FlightId = "9",
@@ -114,7 +114,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 40)),
-                    Cost = new Random().Next(23432, 65753)
+                    Cost = 21480
                 },
                 new Flight {
                     FlightId = "10",
@@ -125,7 +125,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(32, 40)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(2342, 57565)
+                    Cost = 41189
                 },
                 new Flight {
                     FlightId = "11",
@@ -136,7 +136,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(2, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(3, 25)),
-                    Cost = new Random().Next(14000, 20020)
+                    Cost = 35288
                 },
                 new Flight {
                     FlightId = "12",
@@ -147,7 +147,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(10, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(10, 45)),
-                    Cost = new Random().Next(4231, 46546)
+                    Cost = 27988
                 },
                 new Flight {
                     FlightId = "13",
@@ -158,7 +158,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(3243, 7686)
+                    Cost = 14473
                 },
                 new Flight {
                     FlightId = "14",
@@ -169,7 +169,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(23247, 88797)
+                    Cost = 29590
                 },
                 new Flight {
                     FlightId = "15",
@@ -180,7 +180,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(12, 40)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(11, 70)),
-                    Cost = new Random().Next(14800, 32323)
+                    Cost = 12162
                 },
                 new Flight {
                     FlightId = "16",
@@ -191,7 +191,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(21, 100)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(31, 90)),
-                    Cost = new Random().Next(1000, 109000)
+                    Cost = 36993
                 },
                 new Flight {
                     FlightId = "17",
@@ -202,7 +202,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(12, 30)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(10, 50)),
-                    Cost = new Random().Next(2433, 78797)
+                    Cost = 11198
                 },
                 new Flight {
                     FlightId = "18",
@@ -213,7 +213,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(12242, 44564)
+                    Cost = 41765
                 },
                 new Flight {
                     FlightId = "19",
@@ -224,7 +224,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(5454, 76786)
+                    Cost = 42053
                 },
                 new Flight {
                     FlightId = "20",
@@ -235,7 +235,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(10340, 18400)
+                    Cost = 12229
                 },
                 new Flight {
                     FlightId = "21",
@@ -246,7 +246,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(1000, 90000)
+                    Cost = 10344
                 },
                 new Flight {
                     FlightId = "22",
@@ -257,7 +257,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(1000, 10000)
+                    Cost = 40258
                 },
                 new Flight {
                     FlightId = "23",
@@ -268,7 +268,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(2000, 10430)
+                    Cost = 14151
                 },
                 new Flight {
                     FlightId = "24",
@@ -279,7 +279,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(1200, 4334)
+                    Cost = 23294
                 },
                 new Flight {
                     FlightId = "25",
@@ -290,7 +290,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(4554, 77879)
+                    Cost = 31148
                 },
                 new Flight {
                     FlightId = "26",
@@ -301,7 +301,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(3422, 78978)
+                    Cost = 22828
                 },
                 new Flight {
                     FlightId = "27",
@@ -312,7 +312,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(1232, 56154)
+                    Cost = 41676
                 },
                 new Flight {
                     FlightId = "28",
@@ -323,7 +323,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = false,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(3232, 65756)
+                    Cost = 17387
                 },
                 new Flight {
                     FlightId = "29",
@@ -334,7 +334,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true,
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(32432, 99833)
+                    Cost = 31729
                 },
                 new Flight {
                     FlightId = "30",
@@ -345,7 +345,7 @@ namespace FlightSearchProject.Repositories
                     DirectFlight = true, 
                     DepartureTime = new DateTime().AddHours(new Random().Next(1, 20)),
                     ArrivalTime = new DateTime().AddDays(new Random().Next(1, 20)),
-                    Cost = new Random().Next(13430, 32232)
+                    Cost = 12490
                 }
             };
 
@@ -412,12 +412,13 @@ namespace FlightSearchProject.Repositories
             // Returns the following parameters.
             parameters = new SearchParameters()
             {
-                Filter = "to eq " + to + " and from eq " + from + " and directFlight eq " + directFlight,
                 Select = new[] { "from", "to", "directFlight", "airline", "cost", "class", "departureTime", "arrivalTime" },
                 Top = 1
             };
 
-            results = indexClient.Documents.Search<Flight>("*", parameters);
+            string query = "from:" + from + "to:" + to;
+
+            results = indexClient.Documents.Search<Flight>(query, parameters);
 
             return results.Results;
         }

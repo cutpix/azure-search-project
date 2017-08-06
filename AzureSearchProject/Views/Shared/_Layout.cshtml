@@ -23,10 +23,32 @@
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/js/semantic.min.js"></script>
-        <script src="~/js/dropdown.min.js"></script>
-        <script src="~/js/search.js"></script>
-        <script src="~/js/script.js"></script>
+        <script src="~/js/bootstrap3-typeahead.min.js"></script>
+        <script>
+            var input = $(".search-complete");
+
+            input.typeahead({
+                source: [
+                    { id: "1", name: "England, London, London Heathrow" },
+                    { id: "2", name: "United Arab Emirates, Dubai, Dubai International" },
+                    { id: "3", name: "Japan, Tokyo, Tokyo International" },
+                    { id: "4", name: "United States, Los Angeles, Los Angeles International" },
+                    { id: "5", name: "Malaysia, Kuala Lumpur, Kuala Lumpur International" },
+                    { id: "6", name: "Spain, Madrid, Madrid Barajas International" },
+                    { id: "7", name: "South Africa, Johannesburg, OR Tambo International" },
+                    { id: "8", name: "France, Paris, Charles de Gaulle International" },
+                    { id: "9", name: "Hong Kong, Hong Kong, Hong Kong International" },
+                    { id: "10", name: "Germany, Frankfurt, Frankfurt am Main International" },
+                    { id: "11", name: "United States, Miami, Miami International" },
+                    { id: "12", name: "China, Beijing, Beijing Capital International" },
+                    { id: "13", name: "Turkey, Ataturk, Atatürk International" },
+                    { id: "14", name: "Canada, Toronto, Lester B. Pearson International" },
+                    { id: "15", name: "Austrailia, Sydney, Sydney Kingsford Smith International" },
+                    { id: "16", name: "Italy, Milan, Leonardo Da Vinci (Fiumicino) International" },
+                    { id: "17", name: "India, Mumbai, Chhatrapati Shivaji International" }
+                ]
+            })
+        </script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
@@ -35,16 +57,32 @@
                 crossorigin="anonymous"
                 integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
         </script>
-        <script src="~/js/semantic.min.js"
-                asp-fallback-src="~/js/semantic.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/dropdown.min.js"></script>
-        <script src="~/js/search.js"></script>
-        <script src="~/js/script.js"></script>
+        <script src="~/js/bootstrap3-typeahead.min.js"></script>
+        <script>
+            var input = $(".search-complete");
 
+            input.typeahead({
+                source: [
+                    { id: "1", name: "England, London, London Heathrow" },
+                    { id: "2", name: "United Arab Emirates, Dubai, Dubai International" },
+                    { id: "3", name: "Japan, Tokyo, Tokyo International" },
+                    { id: "4", name: "United States, Los Angeles, Los Angeles International" },
+                    { id: "5", name: "Malaysia, Kuala Lumpur, Kuala Lumpur International" },
+                    { id: "6", name: "Spain, Madrid, Madrid Barajas International" },
+                    { id: "7", name: "South Africa, Johannesburg, OR Tambo International" },
+                    { id: "8", name: "France, Paris, Charles de Gaulle International" },
+                    { id: "9", name: "Hong Kong, Hong Kong, Hong Kong International" },
+                    { id: "10", name: "Germany, Frankfurt, Frankfurt am Main International" },
+                    { id: "11", name: "United States, Miami, Miami International" },
+                    { id: "12", name: "China, Beijing, Beijing Capital International" },
+                    { id: "13", name: "Turkey, Ataturk, Atatürk International" },
+                    { id: "14", name: "Canada, Toronto, Lester B. Pearson International" },
+                    { id: "15", name: "Austrailia, Sydney, Sydney Kingsford Smith International" },
+                    { id: "16", name: "Italy, Milan, Leonardo Da Vinci (Fiumicino) International" },
+                    { id: "17", name: "India, Mumbai, Chhatrapati Shivaji International" }
+                ]
+            })
+        </script>
     </environment>
 
     @RenderSection("Scripts", required: false)
