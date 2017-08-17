@@ -9,28 +9,6 @@
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
     <UserSecretsId>d6716030-a8b8-46a6-b0a2-78ff0f252b6f</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\css\dropdown.css" />
-    <Content Include="wwwroot\css\icons.eot" />
-    <Content Include="wwwroot\css\icons.otf" />
-    <Content Include="wwwroot\css\icons.svg" />
-    <Content Include="wwwroot\css\icons.ttf" />
-    <Content Include="wwwroot\css\icons.woff" />
-    <Content Include="wwwroot\css\icons.woff2" />
-    <Content Include="wwwroot\css\search.min.css" />
-    <Content Include="wwwroot\css\semantic.min.css" />
-    <Content Include="wwwroot\css\themes\default\assets\fonts\icons.eot" />
-    <Content Include="wwwroot\css\themes\default\assets\fonts\icons.otf" />
-    <Content Include="wwwroot\css\themes\default\assets\fonts\icons.svg" />
-    <Content Include="wwwroot\css\themes\default\assets\fonts\icons.ttf" />
-    <Content Include="wwwroot\css\themes\default\assets\fonts\icons.woff" />
-    <Content Include="wwwroot\css\themes\default\assets\fonts\icons.woff2" />
-    <Content Include="wwwroot\js\dropdown.min.js" />
-    <Content Include="wwwroot\js\script.js" />
-    <Content Include="wwwroot\js\search.js" />
-    <Content Include="wwwroot\js\semantic.min.js" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
